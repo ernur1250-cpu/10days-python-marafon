@@ -1,0 +1,34 @@
+import random
+import time
+
+print("⚡ РЕАКЦИЯНЫ ТЕКСЕРУ ОЙЫНЫ ⚡")
+print("Экранға 'БАС!' деген жазу шыққанда, ЖЫЛДАМ Enter батырмасын бас.")
+input("Бастау үшін Enter бас...")
+
+print("\nДайындал...")
+# 2-ден 5 секундқа дейін кездейсоқ уақыт күтеді
+kutu_uakyty = random.randint(2, 5)
+time.sleep(kutu_uakyty)
+
+# Басталу уақытын белгілеп аламыз
+bastalgan_sat = time.time()
+
+input("\n🔥 БАС !!! 🔥")
+
+# Пайдаланушы Enter басқан сәтті белгілейміз
+bitкен_sat = time.time()
+
+# Екі уақыттың айырмашылығын табамыз
+reakciya = bitкен_sat - bastalgan_sat
+
+print("-" * 30)
+# round(reakciya, 3) - нүктеден кейін тек 3 санды ғана қалдырады
+print(f"⏱ Сенің реакцияң: {round(reakciya, 3)} секунд!")
+
+# Нәтижеге баға береміз
+if reakciya < 0.25:
+    print("🚀 Керемет! Сенің реакцияң киберспортшылар сияқты!")
+elif reakciya < 0.4:
+    print("👍 Жақсы, орташа жылдамдық!")
+else:
+    print("🐢 Сәл баяулау. Тағы байқап көр!")
