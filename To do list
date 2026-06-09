@@ -1,0 +1,45 @@
+tizim=[]
+#қосу
+def tapsyrma_kosu():
+	jana_tapsyrma=input("жаңа тапсырма: ")
+	tizim.append(jana_tapsyrma)
+	print(f"{jana_tapsyrma} сәтті қосылды!")
+#көру
+def tapsyrma_koru():
+	if not tizim:
+		print("әлі тапсырма жоқ!")
+	else:
+		print("сіздің тапсырмаларыңыз")
+		for nomer,tapsyrma in enumerate(tizim,1):
+			print(f"{nomer}.{tapsyrma}")
+#өшіру
+def oshiru():
+	if tizim:
+		oshiru_nomer=int(input("өшіргіңіз келетін тапсырманың нөмерін жазыңыз: "))
+		if 0< oshiru_nomer <=len(tizim):
+			oshiril=tizim.pop(oshiru_nomer-1)
+			print(f"{oshiril} тізімнен өшірілді")
+		else:
+			print("бұндай тапсырма әлі тізімде жоқ")
+#меню
+while True:
+	print("тапсырмалар тізімі")
+	print("-"*30)
+	print("1-қосу")
+	print("2-көру")
+	print("3-өшіру")
+	print("4-шығу")
+	tandau=int(input("мәзірден таңдаңыз"))
+	if tandau==1:
+		tapsyrma_kosu()
+	elif tandau==2:
+		tapsyrma_koru()
+	elif tandau==3:
+		oshiru()
+	elif tandau==4:
+		print("бағдарлама тоқтатылды")
+		break
+	else:
+		print("қате таңдау тек 1,2,3,4 таңдай аласыз")
+
+
