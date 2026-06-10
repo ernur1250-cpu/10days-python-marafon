@@ -1,0 +1,27 @@
+print("-"*30)
+print("валюта конвертері")
+print("-"*30)
+kurs={"USD":450.0,"RUB":5.61,"EUR":490.0}
+print("1-Теңгені шетел валютасына айырбастау")
+print("2-шетел валютасын KZT ға ауыстыру")
+tandau=input("мәзірден таңдаңыз: ")
+#шарт
+if tandau=="1":
+	Valuta=input("Қай валютаға ауыстырғыңыз келеді:").upper()
+	kansha=float(input("Қанша теңгеңіз бар:"))
+	if Valuta in kurs:	
+		esepteu=kansha/kurs[Valuta]
+		print(f"сіздің ақшаңыз {esepteu}")
+	else:
+		print("Қате ондай таңдау жоқ")
+
+elif tandau=="2":
+		valuta=input("Валютаңыз қандай:").upper()
+		if valuta in kurs:
+			sany=int(input("қанша {valuta} бар:"))
+			Esepteu=sany *kurs[valuta]
+			print(f"сіздің ақшаңыз {Esepteu} теңге")
+else:
+		print("тек 1 мен 2 таңдай аласыз")
+		
+	
