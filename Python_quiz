@@ -1,0 +1,75 @@
+import random
+import time
+
+print("🎯 ПРОГРАММИСТТІҢ ТРЕНАЖЕРЫ — IT ВИКТОРИНА 🎯")
+print("=" * 45)
+print("Ереже: Әр сұраққа дұрыс нұсқаның әрпін (A, B, C, D) жазыңыз.")
+input("Бастау үшін Enter басыңыз...")
+
+# Сұрақтар қоры - Тізімнің ішіндегі Сөздіктер (List of Dictionaries)
+su_raktar = [
+    {
+        "surak": "Python-да экранға мәлімет шығару үшін қай команда қолданылады?",
+        "nuskalar": ["A) input()", "B) print()", "C) output()", "D) def"],
+        "jauap": "B"
+    },
+    {
+        "surak": "Тізімнің ең соңына жаңа элемент қосатын функция қандай?",
+        "nuskalar": ["A) pop()", "B) push()", "C) append()", "D) add()"],
+        "jauap": "C"
+    },
+    {
+        "surak": "Мәтінді бас әріптерге айналдыратын әдіс (метод) қандай?",
+        "nuskalar": ["A) upper()", "B) lower()", "C) title()", "D) capitalize()"],
+        "jauap": "A"
+    },
+    {
+        "surak": "Python-да шексіз цикл жасау үшін қай құрылым қолданылады?",
+        "nuskalar": ["A) for i in range()", "B) if True:", "C) while True:", "D) def loop():"],
+        "jauap": "C"
+    },
+    {
+        "surak": "GitHub бұл не?",
+        "nuskalar": ["A) Код сақтайтын және бөлісетін платформа", "B) Ойын ойнайтын сайт", "C) Вирус өшіретін бағдарлама", "D) Жаңа браузер"],
+        "jauap": "A"
+    }
+]
+
+# Әр ойын сайын сұрақтар кездейсоқ араласып шығады
+random.shuffle(su_raktar)
+
+upay = 0
+bastalgan_uakit = time.time()
+
+# Цикл арқылы әр сұрақты жеке-жеке шығарамыз
+for index, s in enumerate(su_raktar, 1):
+    print(f"\n❓ {index}-СҰРАҚ: {s['surak']}")
+    for nuska in s["nuskalar"]:
+        print(nuska)
+        
+    jauap = input("Сіздің жауабыңыз (A/B/C/D): ").upper().strip()
+    
+    if jauap == s["jauap"]:
+        print("🎉 ДҰРЫС! Керемет!")
+        upay += 1
+    else:
+        print(f"❌ ҚАТЕ! Дұрыс жауап: {s['jauap']}")
+
+# Ойынның біткен уақыты
+bitken_uakit = time.time()
+jalpy_uakit = bitken_uakit - bastalgan_uakit
+
+print("\n" + "=" * 45)
+print("🏁 ОЙЫН АЯҚТАЛДЫ! НӘТИЖЕҢІЗ:")
+print(f"📊 Жиналған ұпай: {upay} / {len(su_raktar)}")
+print(f"⏱ Жұмсалған уақыт: {round(jalpy_uakit, 1)} секунд")
+
+# Қорытынды баға беру
+print("-" * 45)
+if upay == len(su_raktar):
+    print("🏆 СЕН НАҒЫЗ СЕНЬОР ПРОГРАММИСТСІҢ! МІНСІЗ!")
+elif upay >= 3:
+    print("⚡ Өте жақсы! Білімің қалыпты, алға ұмтыл!")
+else:
+    print("🐢 Сәл іздену керек. Марафон кодтарын қайталап шық!")
+print("=" * 45)
