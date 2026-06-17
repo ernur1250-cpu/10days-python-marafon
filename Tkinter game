@@ -1,0 +1,31 @@
+import tkinter as tk
+import random
+tereze=tk.Tk()
+tereze.title("Санды тап ойыны")
+tereze.geometry('350x400')
+jasyryn_san=random.randint(1,100)
+#логика
+def logica():
+	engizilgen_matin=oris.get()
+	if engizilgen_matin=="":
+		engizu.config(text="Алдымен сан еңгіз!",fg="red")
+		return
+	san=int(engizilgen_matin)
+	if san==jasyryn_san:
+		engizu.config(text="Жарайсын сен дәл таптың!",fg="green")
+	elif san < jasyryn_san:
+		engizu.config(text="Үлкенірек",fg="blue")
+	else:
+		engizu.config(text="Кішірек",fg="blue")
+	oris.delete(0,tk.END)
+#енгізу
+engizu=tk.Label(tereze,text="100 мен 1 дің арасында сан жасырдым тауып көр",font=("Arial",13,"bold"))
+engizu.pack(pady=20)
+
+oris=tk.Entry(tereze,font=("Arial",14),justify="center")
+oris.pack(pady=20)
+
+engizu_batyrma=tk.Button(tereze,text="Тексеру",fg="black",bg="white",font=("Arial",13),command=logica)
+engizu_batyrma.pack(pady=20)
+
+tereze.mainloop()
